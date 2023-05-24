@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<p>Hello World.</p>
+<a th:href="@{/index?id=1}">thymeleaf:hello</a><br>
+<a href="/hello?id=1&name=zh">html:hello</a>
+<br>
+<form th:action="@{/hello}">
+    <input type="submit" value="测试method">
+</form>
+<br>
+<a th:href="@{/hello(id=1,name='zh')}">测试params属性</a>
+<br>
+<a th:href="@{/test/rest/1/admin}">测试路径中的占位符-->/testRest</a><br>
+<hr>
+<form th:action="@{/param/servletAPI}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密  码：<input type="password" name="password"><br>
+    <input type="submit"><br>
+</form><br>
+通过控制器形参的方式来获取
+<form th:action="@{/param}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密  码：<input type="password" name="password"><br>
+    <input type="submit"><br>
+</form>
+通过pojo获取的方式来获取参数
+<form th:action="@{/param/pojo}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密  码：<input type="password" name="password"><br>
+    <input type="submit"><br>
+</form>
+</body>
+</html>
