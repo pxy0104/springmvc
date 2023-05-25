@@ -2,8 +2,8 @@ package com.pxy.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -15,5 +15,12 @@ public class ScopeController {
     public String testRequestByServletAPI(HttpServletRequest req) {
         req.setAttribute("username","张三");
         return "success";
+    }
+
+    @RequestMapping("/testModelAndView")
+    public ModelAndView testRequestByServletAPI(ModelAndView mav) {
+        mav.addObject("ModelAndView","mav");
+        mav.setViewName("success");
+        return mav;
     }
 }
