@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @GetMapping("/")
-    public String portal() {
-        return "index";
-    }
+//    @GetMapping("/")
+//    public String portal() {
+//        return "index";
+//    }
 
-    @GetMapping(value = "/index",params = "id")
+    @GetMapping(value = "/index")
     public String index() {
         return "success";
     }
