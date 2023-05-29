@@ -27,6 +27,10 @@
             </bean>
         </property>
     </bean>
+
+    <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
+    <!-- 开启mvc的注解驱动:使首页index中的超链接生效 -->
+    <mvc:annotation-driven/>
     <!--
     处理静态资源，例如html、js、css、jpg
     若只设置该标签，则只能访问静态资源，其他请求则无法访问
@@ -49,7 +53,4 @@
     <!--            </bean>-->
     <!--        </mvc:message-converters>-->
     <!--    </mvc:annotation-driven>-->
-    <mvc:view-controller path="/" view-name="index"></mvc:view-controller>
-    <!-- 开启mvc的注解驱动:使首页index中的超链接生效 -->
-    <mvc:annotation-driven/>
 </beans>
