@@ -19,21 +19,23 @@
 <hr>
 <form th:action="@{/param/servletAPI}" method="post">
     用户名：<input type="text" name="username"><br>
-    密  码：<input type="password" name="password"><br>
+    密 码：<input type="password" name="password"><br>
     <input type="submit"><br>
-</form><br>
+</form>
+<br>
 通过控制器形参的方式来获取
 <form th:action="@{/param}" method="post">
     用户名：<input type="text" name="username"><br>
-    密  码：<input type="password" name="password"><br>
+    密 码：<input type="password" name="password"><br>
     <input type="submit"><br>
 </form>
 通过pojo获取的方式来获取参数
 <form th:action="@{/param/pojo}" method="post">
     用户名：<input type="text" name="username"><br>
-    密  码：<input type="password" name="password"><br>
+    密 码：<input type="password" name="password"><br>
     <input type="submit"><br>
-</form><br>
+</form>
+<br>
 
 域对象共享数据<br>
 <a th:href="@{/testRequestByServletAPI}">requestAPI的方式共享</a><br>
@@ -45,6 +47,54 @@
 <a th:href="@{/testApplication}">向application域中的方式共享</a>
 <br>
 Employee测试 crud
-<a th:href="@{/employee}">查看所有员工</a><br>
+<a th:href="@{/employee}">查看所有员工</a><br><br>
+
+
+HTTP Message Converter Test<br>
+测试注解@RequestBody<br>
+<form th:action="@{/testRequestBody}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密 码：<input type="password" name="password"><br>
+    <input type="submit" value="测试注解@RequestBody"><br>
+</form>
+<br>
+测试类型RequestEntity<br>
+<form th:action="@{/testRequestEntity}" method="post">
+    用户名：<input type="text" name="username"><br>
+    密 码：<input type="password" name="password"><br>
+    <input type="submit" value="测试类型RequestEntity"><br>
+</form>
+<br>
+
+<a th:href="@{/testResponse}">通过servletAPI的response对象响应浏览器数据</a>
+<a th:href="@{/testResponseBody}">通过注解ResponseBody响应浏览器数据</a>
+<a th:href="@{/testResponseUser}">通过注解ResponseBody响应User对象到浏览器数据</a>
+
+<div id="app">
+    <a @click="testAxios" th:href="@{/testAxios}">SpringMVC处理Ajax请求</a>
+</div>
+
+<script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/js/vue.min.js}"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#app",
+        methods: {
+            testAxios: function (event) {
+                axios({
+                    method: "post",
+                    url: event.target.href,
+                    params: {
+                        username: "admin",
+                        password: "123456"
+                    }
+                }).then(function (response) {
+                   alert(response.data);
+                });
+                event.preventDefault();
+            }
+        }
+    });
+</script>
 </body>
 </html>
