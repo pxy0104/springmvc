@@ -5,6 +5,11 @@
     <title>File Up Down</title>
 </head>
 <body>
-<a th:href="/testDown">下载图片</a>
+<a th:href="@{/testDown}">下载图片</a>
+<br>
+<form th:action="@{/testUp}" method="post" enctype="multipart/form-data">
+    头像：<input type="file" name="photo"><br>
+    <input type="submit" value="upload">
+</form>
 </body>
 </html>
