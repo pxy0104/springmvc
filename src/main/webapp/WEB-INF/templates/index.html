@@ -73,7 +73,13 @@ HTTP Message Converter Test<br>
 <div id="app">
     <a @click="testAxios" th:href="@{/testAxios}">SpringMVC处理Ajax请求</a>
 </div>
+<br>
+测试拦截器Interceptor
+<a th:href="@{/testInterceptor}">testInterceptor</a>
 
+<br>
+测试异常处理器<br>
+<a th:href="@{/testException}">测试异常处理器</a>
 <script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
 <script type="text/javascript" th:src="@{/static/js/vue.min.js}"></script>
 <script type="text/javascript">
